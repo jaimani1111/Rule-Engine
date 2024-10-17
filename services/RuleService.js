@@ -1,18 +1,18 @@
-// E:\rule-engine-js\services\RuleService.js
+
 
 const RuleNode = require('../models/RuleNode');
 
-// Create AST from rule string
-const createRule = (ruleString) => {
-    const parts = ruleString.split(' '); // Split rule string into parts
 
-    // Check if rule has three parts (e.g., "age > 18")
+const createRule = (ruleString) => {
+    const parts = ruleString.split(' '); //split rule 
+
+    //  if rule has three parts 
     if (parts.length === 3) {
         return {
             type: "Comparison",
-            operator: parts[1], // e.g., '>', '<', etc.
-            left: { type: "Variable", name: parts[0] }, // e.g., 'age'
-            right: { type: "Literal", value: Number(parts[2]) } // e.g., 18
+            operator: parts[1], 
+            left: { type: "Variable", name: parts[0] }, 
+            right: { type: "Literal", value: Number(parts[2]) } 
         };
     }
     
@@ -20,13 +20,13 @@ const createRule = (ruleString) => {
     const logicalParts = ruleString.split(/ (AND|OR) /);
     if (logicalParts.length > 1) {
         const asts = logicalParts.map((part, index) => {
-            if (index % 2 === 0) { // Even index holds rule parts
+            if (index % 2 === 0) { 
                 return createRule(part);
             }
-        }).filter(Boolean); // Filter out undefined
+        }).filter(Boolean); 
 
         return asts.reduce((acc, curr) => ({
-            type: logicalParts[1], // Logical operator (AND/OR)
+            type: logicalParts[1], // logical operator (AND/OR)
             left: acc,
             right: curr
         }));
@@ -35,13 +35,13 @@ const createRule = (ruleString) => {
     throw new Error("Invalid rule format");
 };
 
-// Combine multiple ASTs
+//combining ASTs
 const combineRules = (rules) => {
     if (rules.length < 2) {
         throw new Error("At least two rules are needed to combine");
     }
-    const asts = rules.map(createRule); // Convert each rule string to AST
-    // Combine all rules into an AND expression
+    const asts = rules.map(createRule); //convert each rule string to AST
+ 
     return asts.reduce((acc, curr) => ({
         type: 'AND',
         left: acc,
@@ -57,7 +57,7 @@ function evaluateRule(ast, data) {
             switch (ast.operator) {
                 case '>':
                     return leftValue > rightValue;
-                // You can add more operators as needed (e.g., '<', '==', etc.)
+               
                 default:
                     throw new Error(`Unsupported operator: ${ast.operator}`);
             }
