@@ -1,6 +1,6 @@
 const { createRule, combineRules, evaluateRule } = require('../services/RuleService');
 
-// Create rule from string
+
 exports.createRule = (req, res) => {
     try {
         const ruleString = req.body.rule;
@@ -15,7 +15,7 @@ exports.createRule = (req, res) => {
     }
 };
 
-// Combine multiple rules
+
 exports.combineRules = (req, res) => {
     try {
         const rules = req.body.rules;
@@ -30,7 +30,7 @@ exports.combineRules = (req, res) => {
     }
 };
 
-// Evaluate rule against data
+
 exports.evaluateRule = (req, res) => {
     try {
         const { ruleAST, data } = req.body;
