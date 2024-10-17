@@ -2,10 +2,10 @@
 const mongoose = require('mongoose');
 
 const RuleNodeSchema = new mongoose.Schema({
-    type: { type: String, required: true }, // operator (AND/OR) or operand (age, department, etc.)
-    left: { type: mongoose.Schema.Types.Mixed }, // Left child node
-    right: { type: mongoose.Schema.Types.Mixed }, // Right child node
-    value: { type: mongoose.Schema.Types.Mixed }, // Optional for operand nodes
+    type: { type: String, required: true }, // operator (AND/OR) 
+    left: { type: mongoose.Schema.Types.Mixed }, 
+    right: { type: mongoose.Schema.Types.Mixed }, 
+    value: { type: mongoose.Schema.Types.Mixed }, 
 });
 
 module.exports = mongoose.model('RuleNode', RuleNodeSchema);
