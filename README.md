@@ -35,9 +35,7 @@ The architecture of the Rule Engine consists of the following components:
 
 
 1. **Clone the Repository**:
-   ```bash
-   git clone <repository-url>
-   cd rule-engine-js
+ 
 
 Install Dependencies:
 
