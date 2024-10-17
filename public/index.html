@@ -1,0 +1,48 @@
+
+
+<!--public/index.html -->
+         
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rule Engine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Rule Engine</h1>
+
+        <!-- Create Rule Form -->
+        <h2>Create Rule</h2>
+        <form id="createRuleForm">
+            <input type="text" id="ruleString" placeholder="Enter rule string" required>
+            <button type="submit">Create Rule</button>
+        </form>
+
+        <!-- Combine Rules Form -->
+        <h2>Combine Rules</h2>
+        <form id="combineRulesForm">
+            <input type="text" id="rule1" placeholder="Rule 1 string" required>
+            <input type="text" id="rule2" placeholder="Rule 2 string" required>
+            <button type="submit">Combine Rules</button>
+        </form>
+
+        <!-- Evaluate Rule Form -->
+        <h2>Evaluate Rule</h2>
+        <form id="evaluateRuleForm">
+            <input type="text" id="jsonData" placeholder="JSON Data" required>
+            <input type="text" id="ruleAST" placeholder="Rule AST" required>
+            <button type="submit">Evaluate Rule</button>
+        </form>
+
+        <h2>Results</h2>
+        <div id="results"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
+
+
