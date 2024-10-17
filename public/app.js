@@ -1,9 +1,9 @@
 //public/app.js
-// Handle Create Rule form submission
-// Handle Create Rule form submission
+
+
 document.getElementById('createRuleForm').addEventListener('submit', async (e) => {
     e.preventDefault();
-    const ruleString = document.getElementById('ruleString').value; // Get the rule string from input
+    const ruleString = document.getElementById('ruleString').value; // get the rule string from input
     
     try {
         const response = await fetch('/api/rules/create', {
@@ -11,24 +11,24 @@ document.getElementById('createRuleForm').addEventListener('submit', async (e) =
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ rule: ruleString }) // Send the rule string as JSON
+            body: JSON.stringify({ rule: ruleString }) // send the rule string as JSON
         });
         
-        const data = await response.json(); // Parse the JSON response
+        const data = await response.json(); // parse the JSON response
         if (response.ok) {
-            // Display the generated AST
+            // displaying the generated AST
             document.getElementById('results').innerText = `AST: ${JSON.stringify(data.ast, null, 2)}`;
         } else {
-            // Handle any errors returned from the server
+            // handleing  any errors returned from the server
             document.getElementById('results').innerText = `Error: ${data.error}`;
         }
     } catch (err) {
-        console.error('Error creating rule:', err); // Log any network errors
+        console.error('Error creating rule:', err); //network errors
         document.getElementById('results').innerText = `Network Error: ${err.message}`;
     }
 });
 
-// Handle Combine Rules form submission
+
 document.getElementById('combineRulesForm').addEventListener('submit', async (e) => {
     e.preventDefault();
     const rule1 = document.getElementById('rule1').value;
@@ -54,7 +54,7 @@ document.getElementById('combineRulesForm').addEventListener('submit', async (e)
     }
 });
 
-// Handle Evaluate Rule form submission
+
 document.getElementById('evaluateRuleForm').addEventListener('submit', async (e) => {
     e.preventDefault();
     const jsonData = document.getElementById('jsonData').value;
