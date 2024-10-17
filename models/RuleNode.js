@@ -1,4 +1,3 @@
-//E:\rule-engine-js\models\RuleNode.js
 const mongoose = require('mongoose');
 
 const RuleNodeSchema = new mongoose.Schema({
