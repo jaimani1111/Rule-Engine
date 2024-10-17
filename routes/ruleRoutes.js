@@ -1,4 +1,4 @@
-// E:\rule-engine-js\routes\ruleRoutes.js
+
 
 const express = require('express');
 const router = express.Router();
